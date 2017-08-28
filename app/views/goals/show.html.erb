@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <center>
+    <H1>Goal Name: <%= @goal.name %> </H1><br>
+  </center>
+  
+  
+  <table>
+  <thead>
+    <tr>
+      <th>Plan ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Goal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goal.plans.each do |plan| %>
+      <tr>
+        <td><%= plan.id %></td>
+        
+        <td><%= plan.name %></td>
+        <td><%= plan.description %></td>
+        <td><%= plan.user %></td>
+        <td><%= plan.goal.name %></td>
+        <td><%= link_to 'Show', plan %></td>
+        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  
+ 
+<% if @goal.users.any? %>
+Users with this goal: 
+<%= @goal.users.count %> <br>
+<ul>
+
+  <% @goal.users.each do |user| %>
+<li>  <%= user.email %></li>
+  <% end %>
+</ul>
+
+
+
+<% else %>
+No users have this goal yet
+<% end %>
+
+
+
+
+<br>
+<hr>
+<br>
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

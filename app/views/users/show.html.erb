@@ -1,0 +1,19 @@
+<p>
+  <strong>User Show Page:</strong> <br>
+  
+ 
+  <b>Email:</b> <%= @user.email %> <br>
+  
+  
+
+<% @user.goals.any? %>
+<b>Goals: </b>
+<ul><%= render @user.goals %></ul>
+
+  
+  
+   <!--< if user.goal.any? %>-->
+   <!-- <p> Goals for this user: <= render user.goals %> </p>-->
+   <!--< end %>-->
+
+</p>
