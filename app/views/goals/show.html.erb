@@ -14,7 +14,11 @@
       <th>Description</th>
       <th>Users following goal</th>
       <th>Following</th>
-      <th colspan="3"></th>
+      <th>User following?</th>
+      <th></th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -28,13 +32,24 @@
         <ul>
             <% plan.user_goals.each do |pug| %>
             <li><%= pug.user.email %></li>
-            
             <% end %>
-            
-            </ul>
-            <% end %>
+        </ul>
+        <% else %>
+        <center>No followers yet</center>
+        <% end %>        
         </td>        
         <td><%= plan.user_goals.count %></td>
+        
+        
+        <td>
+          
+        
+          
+          
+        </td>
+        
+        
+
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

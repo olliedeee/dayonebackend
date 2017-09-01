@@ -6,6 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Followers</th>
+      <th>Plans</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,6 +18,7 @@
       <tr>
         <td><%= goal.name %></td>
         <td><%= pluralize(goal.users.count, "user") if goal.users %> following this goal.</td>
+        <td><%= pluralize(goal.plans.count, "plan") if goal.plans %> for this goal.</td>
         
         <td><%= link_to 'Show', goal %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
