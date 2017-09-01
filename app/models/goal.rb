@@ -3,10 +3,8 @@ class Goal < ApplicationRecord
   validates :name, presence:true, length: {minimum:3, maximum: 40}
  
   has_many :plans
-
   has_many :user_goals
   has_many :users, through: :user_goals
-  validates_uniqueness_of :user
 
  
 end

@@ -7,5 +7,5 @@ class User < ApplicationRecord
          
   has_many :user_goals
   has_many :goals, through: :user_goals
-  has_many :plans
+  has_many :plans, through: :user_goals
 end

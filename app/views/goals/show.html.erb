@@ -12,9 +12,13 @@
       <th>Plan ID</th>
       <th>Name</th>
       <th>Description</th>
-      <th>User</th>
-      <th>Goal</th>
-      <th colspan="3"></th>
+      <th>Users following goal</th>
+      <th>Following</th>
+      <th>User following?</th>
+      <th></th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
 
@@ -22,11 +26,30 @@
     <% @goal.plans.each do |plan| %>
       <tr>
         <td><%= plan.id %></td>
-        
         <td><%= plan.name %></td>
         <td><%= plan.description %></td>
-        <td><%= plan.user %></td>
-        <td><%= plan.goal.name %></td>
+        <td><% if plan.user_goals.any? %>
+        <ul>
+            <% plan.user_goals.each do |pug| %>
+            <li><%= pug.user.email %></li>
+            <% end %>
+        </ul>
+        <% else %>
+        <center>No followers yet</center>
+        <% end %>        
+        </td>        
+        <td><%= plan.user_goals.count %></td>
+        
+        
+        <td>
+          
+        
+          
+          
+        </td>
+        
+        
+
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

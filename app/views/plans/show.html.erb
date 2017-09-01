@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Plan Name:</strong>
   <%= @plan.name %>
 </p>
-
+<p>
+  <strong>Goal Name:</strong>
+  <%= @plan.goal.name %>
+</p>
 <p>
   <strong>Description:</strong>
   <%= @plan.description %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @plan.user %>
+  <strong>Author:</strong>
+  <%= link_to @plan.user.email, user_path(@plan) %>
 </p>
 
 <p>
-  <strong>Goal:</strong>
-  <%= @plan.goal.name %>
+  <strong>Plan followers:</strong>
+  <% @plan.user_goals.each do |pug| %>
+  <ul>
+  <li><%= link_to pug.user.email, user_path(pug.user) %></li>
+  </ul>
+  <% end %>
 </p>
-
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>
