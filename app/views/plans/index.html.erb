@@ -21,8 +21,8 @@
         
         <td><%= plan.name %></td>
         <td><%= plan.description %></td>
-        <td><%= plan.user.email %></td>
-        <td><%= plan.goal.name %></td>
+        <td><%= link_to plan.user.email, user_path(plan) %></td>
+        <td><%= link_to plan.goal.name, goal_path(plan.goal) %></td>
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

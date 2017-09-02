@@ -24,7 +24,7 @@
   
   <div class="field">
     <%= form.label :goal_id %>
-    <%= form.text_field :goal_id, id: :plan_goal_id %>
+    <%= collection_select(:plan, :goal_id, Goal.all, :id, :name) %>
   </div>
 
 
