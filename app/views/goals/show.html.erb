@@ -31,7 +31,7 @@
         <td><% if plan.user_goals.any? %>
         <ul>
             <% plan.user_goals.each do |pug| %>
-            <li><%= pug.user.email %></li>
+            <li><%= link_to pug.user.email, user_path(pug.user) %></li>
             <% end %>
         </ul>
         <% else %>
@@ -39,17 +39,10 @@
         <% end %>        
         </td>        
         <td><%= plan.user_goals.count %></td>
-        
-        
-        <td>
-          
-        
-          
-          
+         <td>
         </td>
         
         
-
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
         <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

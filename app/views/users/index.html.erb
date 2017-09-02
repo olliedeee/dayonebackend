@@ -19,20 +19,18 @@
         <td><%= user.email %></td>
         <td><%= user.id %></td>
         <td><%= user.admin? %></td>
-        <td>                   <ul>
-      
+        <td>                   
+        <ul>
         <% if user.user_goals.any? %>
-
           <% user.user_goals.each do |ug| %>
           <li><%= ug.goal.name %></li>
           <% end %>
-
         <% else %>
         <li> This user has no goals yet</li>
         <% end %>
-                        </ul>
-
+        </ul>
         </td>
+      
         
         <td><%= link_to 'Show', user %></td>
       </tr>

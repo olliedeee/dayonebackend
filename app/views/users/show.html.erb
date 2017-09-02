@@ -5,11 +5,41 @@
   <b>Email:</b> <%= @user.email %> <br>
   
   
+<table>
+  <thead>
+    <tr>
+      <th>Goals</th>
+      <th>Plans</th>
+    </tr>
+  </thead>
 
-<% @user.goals.any? %>
-<b>Goals: </b>
-<ul><%= render @user.goals %></ul>
+  <tbody>
+    <tr>
+      <td>
+          <% if @user.goals.any? %>
+          <ul><%= render @user.goals %></ul>
+          <% else %>
+          This user has no goals yet
+          <% end %>        
+      </td>
+      <td>
+        
+        
+        <% @user.user_goals.each do |uug| %>
 
+        <% uug.plan.each do |ugpid| %>
+        <%= ugpid.name %>
+        <% end %>
+        <% end %>
+
+        
+        
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+ 
   
   
    <!--< if user.goal.any? %>-->
