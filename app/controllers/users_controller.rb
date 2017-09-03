@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @ug1 = @user.user_goals
   end
   
   private
