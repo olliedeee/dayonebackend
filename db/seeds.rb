@@ -52,4 +52,5 @@ UserGoal.create!([{id: 1, user_id: 1, goal_id: 1, plan_id: 1},
                   {id: 5, user_id: 1, goal_id: 3, plan_id: 3},
                   {id: 6, user_id: 3, goal_id: 2, plan_id: 2},
                   {id: 7, user_id: 2, goal_id: 4, plan_id: nil},
-                  {id: 8, user_id: 2, goal_id: 3, plan_id: 3}])
+                  {id: 8, user_id: 2, goal_id: 3, plan_id: 3},
+                  {id: 9, user_id: 4, goal_id: 4, plan_id: 7}])

@@ -1,28 +1,24 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <center>
     <H1>Plans available for: <%= @goal.name %> </H1><br>
   </center>
-  
-  
-  <table>
+<table border="1">
   <thead>
+<% if @goal.plans.any? %>
     <tr>
       <th>Plan ID</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Users following goal</th>
-      <th>Following</th>
+      <th>Users following plan</th>
+      <th>Plan Followers</th>
       <th>User following?</th>
-      <th></th>
       <th>Show</th>
       <th>Edit</th>
       <th>Delete</th>
     </tr>
   </thead>
-
   <tbody>
+    
     <% @goal.plans.each do |plan| %>
       <tr>
         <td><%= plan.id %></td>
@@ -39,9 +35,15 @@
         <% end %>        
         </td>        
         <td><%= plan.user_goals.count %></td>
-         <td>
-        </td>
-        
+           <td> <% if plan.user_goals.any? %> 
+           <%= plan.user_goals_inside(current_user.id) %>
+           <% else %>
+            <!--This is an empty cell, I can add content later -->
+           <% end %>
+
+          </td>
+
+
         
         <td><%= link_to 'Show', plan %></td>
         <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
@@ -50,8 +52,14 @@
     <% end %>
   </tbody>
 </table>
-  
- 
+<% else %>
+This goal has no plans yet. Why not create the first <%= link_to "plan?", new_plan_path(@goal) %>
+
+<% end %>
+
+
+<br>
+<hr>
 <% if @goal.users.any? %>
 Users with this goal: 
 <%= @goal.users.count %> <br>
